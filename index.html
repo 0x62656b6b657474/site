@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>bekkett.</title>
+   <meta name="description" content="we are bekkett." />
+  <meta name="author" content="bekkett" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://www.bekkett.com/" />
+
+  
+  <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+  <meta property="og:site_name" content="bekkett" />
+<meta property="og:title" content="bekkett." />
+<meta property="og:description" content="we are bekkett." />
+<meta property="og:image" content="https://www.bekkett.com/social-preview.png" />
+<meta property="og:url" content="https://www.bekkett.com" />
+<meta property="og:type" content="website" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="bekkett." />
+<meta name="twitter:description" content="we are bekkett." />
+<meta name="twitter:image" content="https://www.bekkett.com/social-preview.png" />
+
+<!-- Apple Touch Icons -->
+<link rel="apple-touch-icon" sizes="57x57" href="https://www.bekkett.com/images/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://www.bekkett.com/images/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://www.bekkett.com/images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://www.bekkett.com/images/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://www.bekkett.com/images/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://www.bekkett.com/images/apple-touch-icon-120x120.png">
+<!-- Add 180x180 for newer iPhones (e.g. iPhone 13 mini) -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.bekkett.com/images/apple-touch-icon-180x180.png">
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" href="https://www.bekkett.com/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://www.bekkett.com/images/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="https://www.bekkett.com/images/favicon-16x16.png" sizes="16x16">
+
+<!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Didot&display=swap" rel="stylesheet" />
+  
+  <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "bekkett",
+    "url": "https://www.bekkett.com", 
+    "description": "we are bekkett."
+  }
+  </script>
+  
+  <!-- Custom Styles -->
+  <style>
+    html, body {
+      margin: 0; padding: 0;
+      max-width: 100%;
+      overflow-x: hidden;
+      font-family: 'IBM Plex Sans', sans-serif;
+      background-color: #000;
+      color: #ffffe0;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      touch-action: none;
+      overscroll-behavior: none;
+      position: relative;
+    }
+
+    .tv-on {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: #fff;
+      z-index: 9999;
+      animation: tvStartup 1s ease-out forwards;
+    }
+
+    @keyframes tvStartup {
+      0% { opacity: 1; transform: scaleY(0.01) scaleX(1.5); }
+      50% { transform: scaleY(1.2) scaleX(1.1); }
+      100% { opacity: 0; transform: scaleY(1) scaleX(1); }
+    }
+
+    video#bgVideo {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      max-width: 100vw;
+      max-height: 100vh;
+    }
+
+    .controls {
+      opacity: 0;
+      visibility: hidden;
+      display: flex;
+      position: fixed;
+      top: 20px; left: 20px;
+      gap: 15px;
+      z-index: 998;
+      transition: opacity 0.6s ease-in, visibility 0.6s ease-in;
+    }
+
+    .controls.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .controls button {
+      background-color: #222;
+      color: #fff;
+      border: 0px solid #fff;
+      padding: 6px 12px;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 4px;
+      min-width: 100px;
+      font-family: 'Didot', serif;
+      letter-spacing: 1px;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 5px rgba(255,255,255,0.2);
+    }
+
+    .controls button:hover {
+      background-color: #444;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+
+    @media (min-width: 2560px) {
+      .controls button {
+        font-size: 2em;
+        padding: 12px 24px;
+        min-width: 140px;
+        border-width: 2px;
+        border-radius: 6px;
+      }
+    }
+
+    .scroll-text {
+      font-family: 'Didot', serif;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid;
+      width: 0;
+      animation: typing 3s steps(8) 1s forwards, blink 0.7s step-end infinite;
+      font-size: 10vw;
+      visibility: hidden;
+      text-align: center;
+    }
+
+    @keyframes typing {
+      0% { width: 0; }
+      100% { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    @media (max-width: 600px) {
+      .scroll-text {
+        font-size: 15vw;
+      }
+    }
+
+    @media (min-width: 2560px) {
+      .scroll-text {
+        font-size: 5vw;
+      }
+    }
+  </style>
+</head>
+<!-- Begin Body: Visual & Interactive Elements -->
+
+<body>
+
+  <div class="tv-on"></div>
+
+  <video id="bgVideo" autoplay muted loop playsinline webkit-playsinline preload="auto">
+    <source src="media/15.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="controls" id="controlButtons">
+    <button onclick="toggleMute()" id="muteButton">⨁</button>
+  </div>
+
+  <div id="scrollText" class="scroll-text">
+    <strong>bekkett.</strong>
+  </div>
+
+ <!-- <audio id="backgroundMusic" src="your-music-file.mp3" preload="auto"></audio>-->
+
+
+<!-- Interactive Logic: Video, Audio, and Intro Animation -->
+
+  <script>
+    const scrollText = document.getElementById('scrollText');
+    const muteButton = document.getElementById('muteButton');
+    const bgVideo = document.getElementById('bgVideo');
+    const backgroundMusic = document.getElementById('backgroundMusic');
+    const controlButtons = document.getElementById('controlButtons');
+
+    let musicStarted = false;
+
+    function toggleMute() {
+      bgVideo.muted = !bgVideo.muted;
+      muteButton.textContent = bgVideo.muted ? '⨁' : '⨂';
+
+      if (!bgVideo.muted && !musicStarted) {
+        playMusic();
+      }
+    }
+
+    function playMusic() {
+      backgroundMusic.play().catch(error => console.error("Error playing music:", error));
+      musicStarted = true;
+    }
+
+    scrollText.addEventListener("animationend", () => {
+      controlButtons.classList.add("visible");
+    });
+
+    window.onload = () => {
+      setTimeout(() => {
+        document.querySelector('.tv-on').style.display = 'none';
+        scrollText.style.visibility = 'visible';
+        bgVideo.volume = 0.5;
+        bgVideo.play().catch(() => {});
+      }, 1000);
+
+      setTimeout(() => {
+        location.reload();
+      }, 32000);
+    };
+
+    window.addEventListener('resize', () => {
+      document.body.style.height = `${window.innerHeight}px`;
+    });
+
+    window.addEventListener('load', () => {
+      scrollText.style.animation = 'none';
+      setTimeout(() => {
+        scrollText.style.animation = 'typing 3s steps(8) 1s forwards';
+      }, 100);
+    });
+  </script>
+
+</body>
+</html>
